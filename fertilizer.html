@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation Assistant</title>
+    <link rel="stylesheet" href="fertilizer.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="history.back()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <h2 class="title">Fertilizer Recommendation Assistant</h2>
+            <div class="current-date">Current Date: <span id="currentDate"></span></div>
+        </div>
+
+        <form id="fertilizerForm">
+            <div class="form-group">
+                <label class="form-label">Crop Type</label>
+                <select class="form-control" name="cropType" required>
+                    <option value="">Select crop</option>
+                    <option value="paddy">Paddy (Rice)</option>
+                    <option value="wheat">Wheat</option>
+                    <option value="cotton">Cotton</option>
+                    <option value="sugarcane">Sugarcane</option>
+                    <option value="maize">Maize</option>
+                    <option value="pulses">Pulses</option>
+                    <option value="vegetables">Vegetables</option>
+                    <option value="groundnut">Groundnut</option>
+                    <option value="soybean">Soybean</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Field Area</label>
+                <div class="area-input-group">
+                    <input type="number" class="form-control" name="fieldArea" required min="0.1" step="0.1">
+                    <select class="form-control" name="areaUnit">
+                        <option value="acre">Acre</option>
+                        <option value="bigha">Bigha</option>
+                        <option value="hectare">Hectare</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Soil Test Report</label>
+                <select class="form-control" name="soilTestAvailable">
+                    <option value="no">Not Available</option>
+                    <option value="yes">Available</option>
+                </select>
+            </div>
+
+            <div id="soilTestDetails" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label">Nitrogen Level (N)</label>
+                    <select class="form-control" name="nitrogenLevel">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Phosphorus Level (P)</label>
+                    <select class="form-control" name="phosphorusLevel">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Potassium Level (K)</label>
+                    <select class="form-control" name="potassiumLevel">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Irrigation Source</label>
+                <select class="form-control" name="irrigationSource" required>
+                    <option value="">Select source</option>
+                    <option value="canal">Canal</option>
+                    <option value="tubewell">Tubewell</option>
+                    <option value="well">Well</option>
+                    <option value="rainfed">Rainfed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Crop Stage</label>
+                <select class="form-control" name="cropStage" required>
+                    <option value="">Select stage</option>
+                    <option value="sowing">Sowing</option>
+                    <option value="vegetative">Vegetative Growth</option>
+                    <option value="flowering">Flowering</option>
+                    <option value="fruiting">Fruiting</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Budget per Acre</label>
+                <input type="number" class="form-control" name="budget" placeholder="₹" required>
+            </div>
+
+            <button type="submit" class="submit-button">Get Recommendations</button>
+        </form>
+
+        <div id="recommendations" style="display: none"></div>
+        <div id="error" style="display: none"></div>
+
+        <p class="disclaimer">
+            Disclaimer: These recommendations are suggestions only. Please consult agricultural experts for precise fertilizer applications.
+        </p>
+    </div>
+
+    <script src="fertilizer.js"></script>
+</body>
+</html> 

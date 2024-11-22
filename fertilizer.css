@@ -1,0 +1,288 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(249, 250, 251);
+    padding: 3rem 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.container {
+    max-width: 42rem;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.back-button {
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover {
+    background-color: rgb(243, 244, 246);
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.current-date {
+    margin-left: auto;
+    font-size: 0.875rem;
+    color: rgb(75, 85, 99);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(55, 65, 81);
+    margin-bottom: 0.25rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid rgb(209, 213, 219);
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-control:focus {
+    border-color: rgb(34, 197, 94);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+    outline: none;
+}
+
+.area-input-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.area-input-group .form-control {
+    flex: 1;
+}
+
+.area-input-group select {
+    width: 150px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: rgb(22, 163, 74);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: rgb(21, 128, 61);
+}
+
+.submit-button:disabled {
+    background-color: rgb(74, 222, 128);
+    cursor: not-allowed;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.recommendations {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(to bottom right, rgb(240, 253, 244), rgb(236, 253, 245));
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.recommendations-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(22, 101, 52);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.recommendations-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.recommendation-card {
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid rgb(167, 243, 208);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recommendation-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.recommendation-number {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(220, 252, 231);
+    color: rgb(22, 163, 74);
+    border-radius: 9999px;
+    font-weight: 600;
+}
+
+.crop-name {
+    font-weight: 600;
+    color: rgb(22, 163, 74);
+    margin-bottom: 0.25rem;
+}
+
+.suitability {
+    font-size: 0.875rem;
+    color: rgb(75, 85, 99);
+}
+
+.growing-info {
+    font-size: 0.875rem;
+    color: rgb(55, 65, 81);
+    margin-top: 0.25rem;
+}
+
+.subsidy-info {
+    color: rgb(22, 163, 74);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgb(167, 243, 208);
+}
+
+.error {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: rgb(254, 242, 242);
+    border-radius: 0.5rem;
+}
+
+.error-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(153, 27, 27);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: rgb(185, 28, 28);
+    text-align: center;
+}
+
+.disclaimer {
+    font-size: 0.875rem;
+    color: rgb(75, 85, 99);
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(229, 231, 235);
+}
+
+.organic-alternatives, .precautions {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: rgb(243, 244, 246);
+    border-radius: 0.5rem;
+}
+
+.organic-alternatives h4, .precautions h4 {
+    color: rgb(22, 163, 74);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.organic-option {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.organic-option h5 {
+    color: rgb(22, 163, 74);
+    margin-bottom: 0.5rem;
+}
+
+.precautions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.precautions li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgb(229, 231, 235);
+}
+
+.precautions li:last-child {
+    border-bottom: none;
+}
+
+.error-details {
+    font-size: 0.875rem;
+    color: rgb(185, 28, 28);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgb(252, 165, 165);
+    white-space: pre-wrap;
+    word-break: break-word;
+} 
